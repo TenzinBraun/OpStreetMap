@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.util.MapTileIndex
 import org.osmdroid.views.overlay.*
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-
         initMapView()
 
         val permissions = mutableListOf<String>()
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         mapView.setMultiTouchControls(true)
         mapController.setZoom(9.5)
         mapController.setCenter(GeoPoint(46.2, 5.2167))
+        mapView.setTileSource(TileSourceFactory.USGS_SAT)
         //endregion
 
         //region Location - Overlay
